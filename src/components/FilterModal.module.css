@@ -1,0 +1,296 @@
+/* ── Overlay ─────────────────────────────────────────────── */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  animation: overlayIn .2s ease forwards;
+}
+
+@keyframes overlayIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ── Box ─────────────────────────────────────────────────── */
+.box {
+  background: var(--color-bg);
+  border-radius: var(--radius-lg);
+  padding: 36px 40px 40px;
+  width: 100%;
+  max-width: 520px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: var(--shadow-lg);
+}
+
+.box::-webkit-scrollbar { width: 5px; }
+.box::-webkit-scrollbar-track { background: transparent; }
+.box::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 3px; }
+
+/* step transitions */
+.fadeIn  { animation: stepIn  .2s ease forwards; }
+.fadeOut { animation: stepOut .18s ease forwards; }
+
+@keyframes stepIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes stepOut {
+  from { opacity: 1; transform: translateY(0); }
+  to   { opacity: 0; transform: translateY(-8px); }
+}
+
+/* ── Close button ────────────────────────────────────────── */
+.close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: 13px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+  transition: background .2s;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.close:hover { background: var(--color-border); color: var(--color-text); }
+
+/* ── Progress bar ────────────────────────────────────────── */
+.progressWrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.progressTrack {
+  flex: 1;
+  height: 4px;
+  background: var(--color-border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: var(--color-primary);
+  border-radius: 2px;
+  transition: width .35s ease;
+}
+
+.progressLabel {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+
+/* ── Step body ───────────────────────────────────────────── */
+.stepBody h2 {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--color-primary);
+  margin-bottom: 8px;
+  padding-right: 36px;
+}
+
+.modalSub {
+  font-size: 14px;
+  color: var(--color-text-muted);
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+.accentText {
+  color: var(--color-accent);
+  font-style: normal;
+}
+
+/* ── Phone row ───────────────────────────────────────────── */
+.phoneRow {
+  display: flex;
+  gap: 8px;
+}
+
+.countrySelect {
+  flex-shrink: 0;
+  width: 100px !important;
+  min-width: 100px;
+  max-width: 100px;
+  padding: 10px 8px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font);
+  font-size: 14px;
+  color: var(--color-text);
+  background: var(--color-bg);
+  outline: none;
+  cursor: pointer;
+  transition: border-color .2s;
+}
+.countrySelect:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(0, 102, 204, .1);
+}
+
+.phoneInput {
+  flex: 1;
+  width: 0 !important;
+  min-width: 0;
+  padding: 10px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font);
+  font-size: 14px;
+  color: var(--color-text);
+  outline: none;
+  transition: border-color .2s;
+}
+.phoneInput:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(0, 102, 204, .1);
+}
+
+/* ── Question block ──────────────────────────────────────── */
+.qBlock {
+  margin-bottom: 24px;
+}
+
+.qLabel {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 10px;
+}
+
+/* ── Option buttons (selections) ─────────────────────────── */
+.optRow {
+  display: flex;
+  gap: 10px;
+}
+
+.optGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.optBtn {
+  position: relative;
+  flex: 1;
+  padding: 12px 16px;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+  font-family: var(--font);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text);
+  cursor: pointer;
+  text-align: center;
+  transition: border-color .15s, background .15s, color .15s, transform .1s;
+  line-height: 1.4;
+}
+
+.optBtn:hover {
+  border-color: var(--color-primary);
+  background: var(--color-surface);
+}
+
+.optBtnSelected {
+  border-color: var(--color-primary) !important;
+  background: var(--color-primary) !important;
+  color: #fff !important;
+}
+
+.optBtn:active { transform: scale(.97); }
+
+.optCheck {
+  margin-right: 6px;
+  font-size: 12px;
+}
+
+/* ── Calendar ────────────────────────────────────────────── */
+.successBadge {
+  display: inline-block;
+  background: var(--color-green-bg);
+  color: var(--color-green);
+  border: 1px solid #a7d7a9;
+  border-radius: 100px;
+  padding: 4px 14px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.calendarEmbed {
+  margin-top: 20px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+}
+
+/* ── PDF ─────────────────────────────────────────────────── */
+.pdfGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pdfOption {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 14px;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: border-color .2s, background .2s;
+}
+.pdfOption:hover { border-color: var(--color-accent); background: #f0f7ff; }
+.pdfSelected { border-color: var(--color-accent) !important; background: #f0f7ff !important; }
+
+.pdfOption input[type="radio"] {
+  margin-top: 3px;
+  flex-shrink: 0;
+  accent-color: var(--color-accent);
+}
+
+.pdfOption span { font-size: 13px; color: var(--color-text); line-height: 1.5; }
+
+.pdfConfirm {
+  margin-top: 16px;
+  padding: 14px;
+  background: var(--color-green-bg);
+  border: 1px solid #a7d7a9;
+  border-radius: var(--radius-sm);
+  color: var(--color-green);
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* ── Mobile ──────────────────────────────────────────────── */
+@media (max-width: 540px) {
+  .box { padding: 28px 20px 32px; max-height: 95vh; }
+  .stepBody h2 { font-size: 18px; }
+  .optGrid { grid-template-columns: 1fr; }
+  .optRow { flex-direction: column; }
+}
