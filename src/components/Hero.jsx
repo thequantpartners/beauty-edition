@@ -22,7 +22,7 @@ export default function Hero() {
 
         <p className={styles.subStrong}>
           Instalamos tu sistema en{' '}
-          <span className={styles.accentUnderline}>60 días</span>
+          <span className={styles.accentUnderline}>8 semanas</span>
           {' '}— luego es 100% tuyo y tú lo controlas.
         </p>
 
@@ -46,7 +46,7 @@ export default function Hero() {
             <h3 className={styles.psTitleGood}>Tracción pura. Autonomía total.</h3>
             <ul className={styles.psList}>
               <li><span className={styles.check}>✓</span> Tráfico predecible y de alto valor hacia tus servicios más rentables.</li>
-              <li><span className={styles.check}>✓</span> <strong>El sistema es 100% TUYO</strong> a los 60 días. Cero comisiones, cero retainers infinitos.</li>
+              <li><span className={styles.check}>✓</span> <strong>El sistema es 100% TUYO</strong> a las 8 semanas. Cero comisiones, cero retainers infinitos.</li>
               <li><span className={styles.check}>✓</span> Añades de <strong>S/ 3,000 a S/ 5,000 netos</strong> a tu facturación real mensual.</li>
             </ul>
           </div>
